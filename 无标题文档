@@ -1,0 +1,35 @@
+(r'/static/(.*)',
+        tornado.web.StaticFileHandler,
+        dict(path=settings['static_path'])),
+settings = {
+    "debug": True,
+    "static_path": os.path.join(os.path.dirname(__file__), 'static'),
+    "template_path": os.path.join(os.path.dirname(__file__), 'templates'),
+    "cookie_secret": "61eJJFuYh7EQnp2XdTP1o/VooETzKXQAGaYdkL5gEmG=",
+}
+url_map = [
+    (r'/$', IndexHandler),
+    (r'/news_list', NewsListHandler),
+    (r'/test/detail/(\d+)', DetailHanlder),
+    (r'/test/search/', TestSearchHandler),
+    (r'/test/page/(\d+)', PageHandler),
+
+    (r'/latest$', LatestHandler),
+
+    (r'/id/(\d+)$', QueryById),
+    (r'/id/(\d+)-(\d+)', IdRegionHandler),
+
+    (r'/date/(\d{4}-\d{1,2}-\d{1,2})$', QueryByDate),
+    (r'/date/(\d{4}-\d{1,2}-\d{1,2})/(\d{4}-\d{1,2}-\d{1,2})$',
+        DateRegionHandler),
+
+    (r'/search/(.+)', SearchHandler),
+    (r'/search', SearchHandler),  # for post
+
+    (r'/static/(.*)',
+        tornado.web.StaticFileHandler,
+        dict(path=settings['static_path'])),
+]
+
+application = tornado.web.Application(url_map, **settings)
+
