@@ -1,0 +1,28 @@
+<html>
+    <body>
+        <form action="/new_building" enctype="multipart/form-data" method="post">
+            ID:<input type="text" name="id"><br>
+            Name:<input type="text" name="name"><br>
+            X:<input type="text" name="X" id="x"><br>
+            Y:<input type="text" name="Y" id = "y"><br>
+            Father:<input type="text" name="father"><br>
+            Pic1:<input type="file" name="myfile"><br>
+            Pic2:<input type="file" name="myfile"><br>
+            Pic3:<input type="file" name="myfile"><br>
+            Pic4:<input type="file" name="myfile"><br>
+            Pic5:<input type="file" name="myfile"><br>
+            Pic6:<input type="file" name="myfile"><br>
+            Pic7:<input type="file" name="myfile"><br>
+            Pic8:<input type="file" name="myfile"><br>
+            <input type="submit" value="Submit">
+        </form>
+	<script>
+	navigator.geolocation.getCurrentPosition(function(position){
+		var a = document.getElementById("x");
+		var b = document.getElementById("y");
+		a.value = position.coords.longitude;
+		b.value = position.coords.latitude;
+})
+</script>
+    </body>
+</html>
