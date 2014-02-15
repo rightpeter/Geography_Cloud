@@ -11,6 +11,8 @@ from tornado.options import define, options
 from uploadHandler import UploadHandler
 from getXYHandler import  GetXYHandler
 from getDetailHandler import GetDetailHandler
+from getPictureHandler import GetPictureHandler
+from getOverviewHandler import GetOverviewHandler
 
 define("port", default=2358, help="run on the given port", type=int)
 
@@ -21,7 +23,9 @@ class Application(tornado.web.Application):
             (r'/', MainHandler),
             (r'/new_building', UploadHandler),
             (r'/getxy', GetXYHandler),
-            (r'/getdetail', GetDetailHandler),
+            (r'/getpic', GetPictureHandler),
+            (r'/getdetail/(\d+)$', GetDetailHandler),
+            (r'/getoverview/(\d+)$', GetOverviewHandler),
         ]
         settings = dict(
             template_path=os.path.join(os.path.dirname(__file__), "templates"),

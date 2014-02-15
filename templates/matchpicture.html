@@ -1,12 +1,12 @@
 <html>
     <body>
-        <form action="/getxy" method="post">
+        <form action="/getpic" enctype="multipart/form-data" method="post">
             Longitude:<input type="text" name="lng" id="x"><br>
             Latitude:<input type="text" name="lat" id="y"><br>
-            Range:<input type="text" name="ran"><br>
+            Pic:<input type="file" name="myfile"><br>
             <input type="submit" value="Submit">
         </form>
-<script>
+	<script>
 	navigator.geolocation.getCurrentPosition(function(position){
 		var a = document.getElementById("x");
 		var b = document.getElementById("y");

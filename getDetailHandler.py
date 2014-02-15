@@ -7,17 +7,27 @@ import os.path
 import pickle
 import json
 
+from db import *
+from myTools import *
+
 #获取详细
 class GetDetailHandler(tornado.web.RequestHandler):
-    def get(self):
-        self.render("detail.html")
+    def get(self, bid):
+        detail = GCDatabase.query("""SELECT * FROM buildings WHERE id=%s""", bid)
+        detail = detail[0]
+        print detail 
 
-    def post(self):
-        self.set_header("Content-Type", "application/json")
-        building_id = self.get_argument("id")
-        building_path = './static/buildings/' + building_id + '/info.pickle'
-        with open(building_path, 'rb') as tmp:
-            building_dict = pickle.load(tmp)
-        encodedjson = json.dumps(building_dict)
+        sonlist = GCDatabase.query("""SELECT cid, storey FROM relation
+                WHERE fid=%s""", bid)
+
+        storey = int(detail['storey'])
+        for i in range(1, storey+1):
+            tmp = 'level%s' % i
+            detail[tmp] = []
+            for son in sonlist:
+                if son['storey'] == i:
+                    detail[tmp].append(int(son['cid']))
+
+        print detail
+        encodedjson = json.dumps(detail, cls=CJsonEncoder)
         self.write(encodedjson)
-
