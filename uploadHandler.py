@@ -18,8 +18,14 @@ class UploadHandler(tornado.web.RequestHandler):
         GCDatabase.reconnect()
         
         name = self.get_argument('name')
-        lng = self.get_argument('lng')
-        lat = self.get_argument('lat')
+        try:
+            lng = self.get_argument('lng')
+        except:
+            lng = 121.818034 
+        try:
+            lat = self.get_argument('lat')
+        except:
+            lat = 39.086543 
         storey = self.get_argument('storey')
         description = self.get_argument('description')
 
@@ -31,9 +37,12 @@ class UploadHandler(tornado.web.RequestHandler):
             floor = 0
 
         #存入info
-        GCDatabase.execute(u"""INSERT buildings(name, lng, lat, storey,
-                description) VALUES(%s, %s, %s, %s, %s)""", name, lng, lat,
-                storey, description) 
+        #GCDatabase.execute(u"""INSERT buildings(name, lng, lat, storey,
+        #        description) VALUES(%s, %s, %s, %s, %s)""", name, lng, lat,
+        #        storey, description) 
+
+        GCDatabase.execute(u"""INSERT buildings(name, storey,
+                description) VALUES(%s, %s, %s)""", name, storey, description) 
 
         cid = int(GCDatabase.query("""SELECT LAST_INSERT_ID() AS id;""")[0]['id'])
 
@@ -50,6 +59,7 @@ class UploadHandler(tornado.web.RequestHandler):
         if self.request.files:
             for i in range(0, len(self.request.files['myfile'])): 
                     myfile = self.request.files['myfile'][i] 
+                    print myfile
                     path_image = home_path + '%d.jpg' % i
                     image = open(path_image, "w")
                     print "success to open" + path_image

@@ -17,6 +17,7 @@ def installBuildingsTable():
             description TEXT,
             posttime TIMESTAMP, 
             PRIMARY KEY(id)) 
+            DEFAULT CHARSET=utf8
     """)
 
 def installRelationTable():
@@ -28,6 +29,7 @@ def installRelationTable():
             storey TINYINT,
             posttime TIMESTAMP, 
             PRIMARY KEY(id)) 
+            DEFAULT CHARSET=utf8
     """)
 
     

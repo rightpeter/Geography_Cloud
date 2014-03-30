@@ -14,8 +14,16 @@ from myTools import *
 class GetDetailHandler(tornado.web.RequestHandler):
     def get(self, bid):
         detail = GCDatabase.query("""SELECT * FROM buildings WHERE id=%s""", bid)
-        detail = detail[0]
-        print detail 
+        if len(detail):
+            detail = detail[0]
+        else:
+            detail = {}
+
+        fid = GCDatabase.query("""SELECT fid, storey FROM relation WHERE
+                cid=%s""", bid)
+        if len(fid):
+            detail['fid'] = fid[0]['fid']
+            detail['at_storey'] = fid[0]['storey']
 
         sonlist = GCDatabase.query("""SELECT cid, storey FROM relation
                 WHERE fid=%s""", bid)

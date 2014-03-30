@@ -13,14 +13,16 @@ from getXYHandler import  GetXYHandler
 from getDetailHandler import GetDetailHandler
 from getPictureHandler import GetPictureHandler
 from getOverviewHandler import GetOverviewHandler
+from urlMapHandler import UrlMapHandler
 
-define("port", default=2358, help="run on the given port", type=int)
+define("port", default=3358, help="run on the given port", type=int)
 
 
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r'/', MainHandler),
+            (r'/urlmap', UrlMapHandler),
             (r'/new_building', UploadHandler),
             (r'/getxy', GetXYHandler),
             (r'/getpic', GetPictureHandler),

@@ -1,0 +1,169 @@
+ERROR:root:Cannot connect to MySQL on 127.0.0.1:3306
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/database.py", line 84, in __init__
+    self.reconnect()
+  File "/usr/lib/python2.7/dist-packages/tornado/database.py", line 101, in reconnect
+    self._db = MySQLdb.connect(**self._db_args)
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/connections.py", line 187, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (1045, "Access denied for user 'geo_clo'@'localhost' (using password: YES)")
+Traceback (most recent call last):
+  File "webServer.py", line 47, in <module>
+    main()
+  File "webServer.py", line 43, in main
+    app.listen(options.port)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1274, in listen
+    server.listen(port, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 103, in listen
+    sockets = bind_sockets(port, address=address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 268, in bind_sockets
+    sock.bind(sockaddr)
+  File "/usr/lib/python2.7/socket.py", line 224, in meth
+    return getattr(self._sock,name)(*args)
+socket.error: [Errno 98] Address already in use
+ERROR:root:Cannot connect to MySQL on 127.0.0.1:3306
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/database.py", line 84, in __init__
+    self.reconnect()
+  File "/usr/lib/python2.7/dist-packages/tornado/database.py", line 101, in reconnect
+    self._db = MySQLdb.connect(**self._db_args)
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/connections.py", line 187, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (1045, "Access denied for user 'geo_clo'@'localhost' (using password: YES)")
+WARNING:root:404 GET /getXY (210.30.107.1) 0.44ms
+WARNING:root:404 GET /getXY (210.30.107.1) 0.42ms
+WARNING:root:404 GET /getxY (210.30.107.3) 0.49ms
+WARNING:root:404 GET /getxY (210.30.107.3) 0.43ms
+WARNING:root:400 POST /getxy (210.30.107.6): Missing argument lng
+WARNING:root:400 POST /getxy (210.30.107.6) 1.30ms
+ERROR:root:Uncaught exception POST /getxy (210.30.107.6)
+HTTPRequest(protocol='http', host='210.30.97.149:3358', method='POST', uri='/getxy', version='HTTP/1.1', remote_ip='210.30.107.6', body='lng=123&lat=123&ran=1000', headers={'Content-Length': '24', 'Accept-Language': 'en-US,en;q=0.8,zh-Hans-CN;q=0.5,zh-Hans;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': '210.30.97.149:3358', 'Accept': 'text/html, application/xhtml+xml, */*', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko', 'Dnt': '1', 'Connection': 'Keep-Alive', 'Referer': 'http://210.30.97.149:3358/getxy', 'Cache-Control': 'no-cache', 'Content-Type': 'application/x-www-form-urlencoded'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1021, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/home/rightpeter/github/Geography_Cloud/getXYHandler.py", line 24, in post
+    buildings_list = getNearby((lat, lng), dis)
+  File "/home/rightpeter/github/Geography_Cloud/myTools.py", line 27, in getNearby
+    GCDatabase.reconnect()
+  File "/usr/lib/python2.7/dist-packages/tornado/database.py", line 101, in reconnect
+    self._db = MySQLdb.connect(**self._db_args)
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/connections.py", line 187, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (1045, "Access denied for user 'geo_clo'@'localhost' (using password: YES)")
+ERROR:root:500 POST /getxy (210.30.107.6) 4.44ms
+WARNING:root:404 GET /getXY (210.30.107.6) 0.46ms
+ERROR:root:Uncaught exception POST /getxy (210.30.107.6)
+HTTPRequest(protocol='http', host='210.30.97.149:3358', method='POST', uri='/getxy', version='HTTP/1.1', remote_ip='210.30.107.6', body='lng=123&lat=123&ran=10000', headers={'Content-Length': '25', 'Accept-Language': 'en-US,en;q=0.8,zh-Hans-CN;q=0.5,zh-Hans;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': '210.30.97.149:3358', 'Accept': 'text/html, application/xhtml+xml, */*', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko', 'Dnt': '1', 'Connection': 'Keep-Alive', 'Referer': 'http://210.30.97.149:3358/getxy', 'Cache-Control': 'no-cache', 'Content-Type': 'application/x-www-form-urlencoded'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1021, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/home/rightpeter/github/Geography_Cloud/getXYHandler.py", line 24, in post
+    buildings_list = getNearby((lat, lng), dis)
+  File "/home/rightpeter/github/Geography_Cloud/myTools.py", line 27, in getNearby
+    GCDatabase.reconnect()
+  File "/usr/lib/python2.7/dist-packages/tornado/database.py", line 101, in reconnect
+    self._db = MySQLdb.connect(**self._db_args)
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/connections.py", line 187, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (1045, "Access denied for user 'geo_clo'@'localhost' (using password: YES)")
+ERROR:root:500 POST /getxy (210.30.107.6) 3.87ms
+ERROR:root:Uncaught exception POST /getxy (210.30.107.6)
+HTTPRequest(protocol='http', host='210.30.97.149:3358', method='POST', uri='/getxy', version='HTTP/1.1', remote_ip='210.30.107.6', body='lng=123&lat=123&ran=100', headers={'Content-Length': '23', 'Accept-Language': 'en-US,en;q=0.8,zh-Hans-CN;q=0.5,zh-Hans;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': '210.30.97.149:3358', 'Accept': 'text/html, application/xhtml+xml, */*', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko', 'Dnt': '1', 'Connection': 'Keep-Alive', 'Referer': 'http://210.30.97.149:3358/getxy', 'Cache-Control': 'no-cache', 'Content-Type': 'application/x-www-form-urlencoded'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1021, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/home/rightpeter/github/Geography_Cloud/getXYHandler.py", line 24, in post
+    buildings_list = getNearby((lat, lng), dis)
+  File "/home/rightpeter/github/Geography_Cloud/myTools.py", line 27, in getNearby
+    GCDatabase.reconnect()
+  File "/usr/lib/python2.7/dist-packages/tornado/database.py", line 101, in reconnect
+    self._db = MySQLdb.connect(**self._db_args)
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/connections.py", line 187, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (1045, "Access denied for user 'geo_clo'@'localhost' (using password: YES)")
+ERROR:root:500 POST /getxy (210.30.107.6) 2.18ms
+ERROR:root:Uncaught exception POST /getxy (210.30.107.6)
+HTTPRequest(protocol='http', host='210.30.97.149:3358', method='POST', uri='/getxy', version='HTTP/1.1', remote_ip='210.30.107.6', body='lng=123&lat=45&ran=100', headers={'Content-Length': '22', 'Accept-Language': 'en-US,en;q=0.8,zh-Hans-CN;q=0.5,zh-Hans;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': '210.30.97.149:3358', 'Accept': 'text/html, application/xhtml+xml, */*', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko', 'Dnt': '1', 'Connection': 'Keep-Alive', 'Referer': 'http://210.30.97.149:3358/getxy', 'Cache-Control': 'no-cache', 'Content-Type': 'application/x-www-form-urlencoded'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1021, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/home/rightpeter/github/Geography_Cloud/getXYHandler.py", line 24, in post
+    buildings_list = getNearby((lat, lng), dis)
+  File "/home/rightpeter/github/Geography_Cloud/myTools.py", line 27, in getNearby
+    GCDatabase.reconnect()
+  File "/usr/lib/python2.7/dist-packages/tornado/database.py", line 101, in reconnect
+    self._db = MySQLdb.connect(**self._db_args)
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/connections.py", line 187, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (1045, "Access denied for user 'geo_clo'@'localhost' (using password: YES)")
+ERROR:root:500 POST /getxy (210.30.107.6) 2.27ms
+ERROR:root:Uncaught exception POST /getxy (210.30.107.6)
+HTTPRequest(protocol='http', host='210.30.97.149:3358', method='POST', uri='/getxy', version='HTTP/1.1', remote_ip='210.30.107.6', body='lng=123&lat=45&ran=100', headers={'Content-Length': '22', 'Accept-Language': 'en-US,en;q=0.8,zh-Hans-CN;q=0.5,zh-Hans;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': '210.30.97.149:3358', 'Accept': 'text/html, application/xhtml+xml, */*', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko', 'Dnt': '1', 'Connection': 'Keep-Alive', 'Referer': 'http://210.30.97.149:3358/getxy', 'Cache-Control': 'no-cache', 'Content-Type': 'application/x-www-form-urlencoded'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1021, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/home/rightpeter/github/Geography_Cloud/getXYHandler.py", line 24, in post
+    buildings_list = getNearby((lat, lng), dis)
+  File "/home/rightpeter/github/Geography_Cloud/myTools.py", line 27, in getNearby
+    GCDatabase.reconnect()
+  File "/usr/lib/python2.7/dist-packages/tornado/database.py", line 101, in reconnect
+    self._db = MySQLdb.connect(**self._db_args)
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/connections.py", line 187, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (1045, "Access denied for user 'geo_clo'@'localhost' (using password: YES)")
+ERROR:root:500 POST /getxy (210.30.107.6) 2.17ms
+WARNING:root:404 GET /getDetail/1 (210.30.107.10) 0.47ms
+WARNING:root:Read error on 13: [Errno 104] Connection reset by peer
+WARNING:root:error on read
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 354, in _handle_read
+    if self._read_to_buffer() == 0:
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 421, in _read_to_buffer
+    chunk = self._read_from_socket()
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 402, in _read_from_socket
+    chunk = self.socket.recv(self.read_chunk_size)
+error: [Errno 104] Connection reset by peer
+WARNING:root:Read error on 14: [Errno 104] Connection reset by peer
+WARNING:root:error on read
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 354, in _handle_read
+    if self._read_to_buffer() == 0:
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 421, in _read_to_buffer
+    chunk = self._read_from_socket()
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 402, in _read_from_socket
+    chunk = self.socket.recv(self.read_chunk_size)
+error: [Errno 104] Connection reset by peer
+WARNING:root:400 POST /getxy (210.30.107.13): Missing argument lng
+WARNING:root:400 POST /getxy (210.30.107.13) 0.85ms
+WARNING:root:400 POST /getxy (210.30.107.1): Missing argument lng
+WARNING:root:400 POST /getxy (210.30.107.1) 1.25ms
+WARNING:root:400 POST /getxy (210.30.107.2): Missing argument lng
+WARNING:root:400 POST /getxy (210.30.107.2) 0.88ms
+WARNING:root:400 POST /getxy (210.30.107.2): Missing argument lng
+WARNING:root:400 POST /getxy (210.30.107.2) 0.90ms
+WARNING:root:400 POST /getxy (210.30.107.3): Missing argument lng
+WARNING:root:400 POST /getxy (210.30.107.3) 0.81ms
+WARNING:root:400 POST /getxy (210.30.107.5): Missing argument lng
+WARNING:root:400 POST /getxy (210.30.107.5) 0.81ms
+WARNING:root:400 POST /getxy (210.30.107.10): Missing argument lng
+WARNING:root:400 POST /getxy (210.30.107.10) 0.84ms
+WARNING:root:400 POST /getxy (210.30.107.12): Missing argument lng
+WARNING:root:400 POST /getxy (210.30.107.12) 0.87ms
+WARNING:root:400 POST /getxy (210.30.107.14): Missing argument lng
+WARNING:root:400 POST /getxy (210.30.107.14) 0.86ms
+WARNING:root:400 POST /getxy (210.30.107.2): Missing argument lng
+WARNING:root:400 POST /getxy (210.30.107.2) 0.84ms
