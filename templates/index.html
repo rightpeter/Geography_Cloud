@@ -1,21 +1,79 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>geo clo</title>
-    <meta name="view" content="initial-scale=1.0", user-scalable=no">
-    <style type="text/css">
-      html { height: 100% }
-      body { height: 100%; margin: 0; padding: 0 }
-      #container { height: 90% }
-    </style>
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=70c302e13f64f35b4d0dee4721bac019"></script>
-    <script type="text/javascript" src="./static/js/jquery-2.0.0.min.js"></script>
-    <script type="text/javascript" src="./static/js/omap.js"></script>
-    <script type="text/javascript" src="./static/js/main.js"></script>
-  </head>
-  <body>
-      <div id="container"></div>
-      <div id="wawa"></div>
-    <div id="map-canvas"></div>
-  </body>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/static/css/chamberMap.css">
+	<!-- <meta http-equiv="refresh" content="1"> -->
+	<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>
+	<script type="text/javascript" src="/static/script/index/chamberMap.js"></script>
+	<script src="/static/script/index/jquery-2.0.3.min.js"></script>
+	<script src="/static/script/index/JSONL.js"></script>
+	<script src="/static/script/index/model.js"></script>
+	<title>Document</title>
+</head>
+<body onload="init()">
+	
+	<div class="placehoder">
+		<div id="container">
+		</div>
+		<div id="chamberMap">
+			
+			<div id="svg">
+			</div>
+
+
+			<div class="mapButtons">
+
+				<ul>
+					<li><a href="#" class="button" onclick="goBack();">返回</a></li>
+					<li><a href="#" class="button">一楼</a>
+						<ul>
+							<li><a href="#" class="button">A101</a></li>
+							<li><a href="#" class="button">A102</a></li>
+							<li><a href="#" class="button">A103</a></li>
+							<li><a href="#" class="button">A104</a></li>
+							<li><a href="#" class="button">A105</a></li>
+						</ul>
+
+					</li>
+					<li><a href="#" class="button">二楼</a></li>
+					<li><a href="#" class="button">三楼</a></li>
+					<li><a href="#" class="button">四楼</a></li>
+					<li><a href="#" class="button">五楼</a></li>
+				</ul>
+				
+			</div>
+	<div class="clearfix"></div>
+
+		</div>
+		
+	</div>
+	<script>
+	// 只刷新部分，未完成
+	// $(document).ready(function(){
+	// 	setInterval(function(){
+	// 		$("#div").load()
+	// 	})
+	// })
+	
+
+
+// $(document).ready(function () { 
+// setInterval(startrequest,"10"); 
+// }); 
+// function startrequest() 
+// { 
+// 	$("#svgFile svg").children().click(function(){
+// 		if(this.id) {
+// 		BuildingService.setPopoverDetail(this.id);
+// 		alert("you click me !");
+
+// }
+// });
+// } 
+
+</script>
+
+</body>
+
 </html>

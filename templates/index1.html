@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/static/css/chamberMap.css">
+	
+	<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>
+	<script type="text/javascript" src="/static/script/index/chamberMap.js"></script>
+	<script src="/static/script/jquery-2.0.3.min.js"></script>
+	<script src="/static/script/index/JSONL.js"></script>
+	<script src="/static/script/index/model.js"></script>
+	<title>Document</title>
+</head>
+<body onload="init()">
+	
+	<div class="placehoder">
+		<div id="container">
+		</div>
+		<div id="chamberMap">
+			<div id="svg">
+			</div>
+
+
+			<div class="mapButtons">
+
+				<ul>
+					<li><a href="#" class="button" onclick="goBack();">返回</a></li>
+					<li><a href="#" class="button">一楼</a>
+						<ul>
+							<li><a href="#" class="button">A101</a></li>
+							<li><a href="#" class="button">A102</a></li>
+							<li><a href="#" class="button">A103</a></li>
+							<li><a href="#" class="button">A104</a></li>
+							<li><a href="#" class="button">A105</a></li>
+						</ul>
+
+					</li>
+					<li><a href="#" class="button">二楼</a></li>
+					<li><a href="#" class="button">三楼</a></li>
+					<li><a href="#" class="button">四楼</a></li>
+					<li><a href="#" class="button">五楼</a></li>
+				</ul>
+				
+			</div>
+	<div class="clearfix"></div>
+
+		</div>
+		
+	</div>
+</body>
+
+</html>

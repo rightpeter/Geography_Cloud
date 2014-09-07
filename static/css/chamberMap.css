@@ -1,0 +1,76 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+body, button, input, select, textarea {
+    font: 12px/16px Verdana, Helvetica, Arial, sans-serif;
+}
+
+
+body{
+    width: 960px;
+    margin: auto;
+    margin-bottom: 1900px;
+}
+
+#chamberMap{
+	background-color: rgba(30,30,30,0.6);
+	position: fixed;;
+	left: 3000px;
+	top: 110px;
+	width: 850px;
+}
+.placehoder{
+	width: 960px;
+	height: 600px;
+	position: relative;
+	overflow: hidden;
+}
+/*2*/
+
+/*2.1 button ui*/
+.mapButtons{
+	float: left;
+	padding-top: 30px;
+	position: relative;
+}
+
+ul{
+	list-style: none;
+}
+ul ul {
+      visibility:hidden;
+      position:absolute;
+      left: 55px;
+      top: 70px;
+}
+ul li:hover ul,/*非IE6*/
+    ul a:hover ul{/*IE6*/
+      visibility:visible;
+    }
+    ul ul li {
+      text-align:left;
+    }
+
+.mapButtons li{
+	background-color: rgba(255,255,0,0.7);
+	line-height: 30px;
+	border-bottom: green 1px dashed;
+	padding: 5px 15px;
+	text-align: center;
+}
+li a{
+	text-decoration: none;
+}
+.clearfix{
+	clear:both;
+}
+#svg{
+	width: 780px;
+	float: left;
+}
+#container{
+	width: 960px;
+	height: 900px;
+}

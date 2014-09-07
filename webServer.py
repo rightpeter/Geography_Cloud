@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 #encoding: utf-8
 
 import tornado.web
@@ -10,7 +10,9 @@ import json
 from tornado.options import define, options
 from uploadHandler import UploadHandler
 from getXYHandler import  GetXYHandler
+from jsonGetXYHandler import JsonGetXYHandler
 from getDetailHandler import GetDetailHandler
+from jsonGetDetailHandler import JsonGetDetailHandler
 from getPictureHandler import GetPictureHandler
 from getOverviewHandler import GetOverviewHandler
 from urlMapHandler import UrlMapHandler
@@ -25,9 +27,12 @@ class Application(tornado.web.Application):
             (r'/urlmap', UrlMapHandler),
             (r'/new_building', UploadHandler),
             (r'/getxy', GetXYHandler),
+            (r'/jsongetxy', JsonGetXYHandler),
             (r'/getpic', GetPictureHandler),
             (r'/getdetail/(\d+)$', GetDetailHandler),
+            (r'/jsongetdetail$', JsonGetDetailHandler),
             (r'/getoverview/(\d+)$', GetOverviewHandler),
+            (r'/indoor', IndoorHandler),
         ]
         settings = dict(
             template_path=os.path.join(os.path.dirname(__file__), "templates"),
@@ -39,6 +44,9 @@ class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("index.html")
 
+class IndoorHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("mapdemo.html")
 
 def main():
     app = Application()

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ static_url("flat-ui/bootstrap/css/bootstrap.css") }}">
+    <link rel="stylesheet" href="{{ static_url("flat-ui/css/flat-ui.css") }}">
+    <title></title>
+</head>
+<body>
+    <!-- 替换svg整个标签就行了 -->
+    <svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    	 width="800px" height="500px" viewBox="0 0 800 500" enable-background="new 0 0 800 500" xml:space="preserve">
+    <rect id="1" x="15.024" y="80" fill="#DCDDDD" width="761.789" height="222.766"/>
+    <rect id="floor" x="314.09" y="80" fill="#171C61" width="159.91" height="85.366"/>
+    <rect id="gate" x="352.438" y="246.667" fill="#C9A063" width="86.991" height="93.496"/>
+    <rect id="a105" x="587.276" y="272.683" fill="#F8B62D" width="49.578" height="30.082"/>
+    <rect id="a107" x="532.805" y="272.683" fill="#F8B62D" width="49.578" height="30.082"/>
+    <rect id="a109" x="478.52" y="272.683" fill="#F8B62D" width="49.578" height="30.082"/>
+    <rect id="a102" x="631.179" y="80.407" fill="#F8B62D" width="49.578" height="30.082"/>
+    <rect id="a104" x="576.707" y="80.407" fill="#F8B62D" width="49.578" height="30.082"/>
+    <rect id="a106" x="522.422" y="80.407" fill="#F8B62D" width="49.578" height="30.082"/>
+    <rect id="5" x="214.934" y="80" fill="#F8B62D" width="49.578" height="30.082"/>
+    <rect id="7" x="160.462" y="80" fill="#F8B62D" width="49.578" height="30.082"/>
+    <rect id="a116" x="106.177" y="80" fill="#F8B62D" width="49.578" height="30.082"/>
+    <rect id="8" x="264.512" y="272.683" fill="#F8B62D" width="49.578" height="30.082"/>
+    <rect id="9" x="210.853" y="272.683" fill="#F8B62D" width="49.578" height="30.082"/>
+    <rect id="3" x="155.755" y="272.683" fill="#F8B62D" width="49.578" height="30.082"/>
+    <rect id="4" x="445.561" y="272.683" fill="#22AC38" width="28.439" height="30.082"/>
+    <rect id="a108" x="438.284" y="80.407" fill="#22AC38" width="28.439" height="30.082"/>
+    <rect id="a110" x="319.958" y="80" fill="#22AC38" width="28.439" height="30.082"/>
+    <rect id="a103" x="683.372" y="272.683" fill="#22AC38" width="28.439" height="30.082"/>
+    <rect id="a119_1_" x="84.185" y="272.683" fill="#22AC38" width="28.439" height="30.082"/>
+    <rect id="6" x="319.958" y="272.683" fill="#22AC38" width="28.439" height="30.082"/>
+    <rect id="2" x="718.276" y="80" fill="#2EA7E0" width="58.537" height="222.765"/>
+    <rect id="stair2" x="645.105" y="260.487" fill="#595757" width="31.708" height="42.278"/>
+    <rect id="stair3" x="273.447" y="80.407" fill="#595757" width="31.708" height="42.278"/>
+    <rect id="stair4" x="482.397" y="80.407" fill="#595757" width="31.708" height="42.278"/>
+    <rect id="stair1_1_" x="118.276" y="260.487" fill="#595757" width="31.708" height="42.278"/>
+    <rect id="wc2" x="688.195" y="80.407" fill="#E83828" width="23.616" height="30.082"/>
+    <rect id="wc1" x="78.439" y="80" fill="#E83828" width="23.616" height="30.082"/>
+    <rect id="stair5" x="210.04" y="224.715" fill="#3E3A39" width="104.05" height="40.651"/>
+    </svg>
+
+    <!-- <svg width="640" height="480" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+     <g>
+      <title>Layer 1</title>
+      <rect stroke-dasharray="null" stroke="#000000" fill="#FF0000" id="1" height="379" width="553" y="47" x="48.5"/>
+      <rect stroke-dasharray="null" stroke="#000000" fill="#0000ff" id="2" height="78" width="166" y="97" x="104.5"/>
+      <rect stroke-dasharray="null" stroke="#000000" fill="#ff00ff" id="3" height="84" width="229" y="98" x="317.5"/>
+      <rect stroke-dasharray="null" stroke="#000000" fill="#ffff00" id="4" height="86" width="166" y="271" x="110.5"/>
+      <rect stroke-dasharray="null" stroke="#000000" fill="#00ffff" id="5" height="91" width="203" y="270" x="347.5"/>
+     </g>
+     </svg> -->
+    
+<script src="{{ static_url("flat-ui/js/jquery-2.0.3.min.js") }}"></script>
+<script src="{{ static_url("flat-ui/js/bootstrap.min.js") }}"></script>
+<script src="{{ static_url("script/map/model.js") }}"></script>
+<script src="{{ static_url("script/map/JSONL.js") }}"></script>
+<script>
+  /*  $('a').tooltip();
+    var option = {
+        html: false,
+        placement: 'top',
+        trigger: 'click',
+        title: 'title',
+        content: 'content',
+        container: 'body'
+    };*/
+
+    $('svg').children().each(function(){
+        if(this.id) {
+            BuildingService.setPopoverDetail(this.id);
+        }
+    });
+
+</script>
+</body>
+</html>

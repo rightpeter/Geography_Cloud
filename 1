@@ -1,0 +1,28 @@
+<!DOCYTPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Indoor Map</title>
+        <style type="text/css">
+            html{height: 100%}
+            body{height: 100%; margin: 0px; padding: 0px}
+            #container{height: 100%}
+        </style>
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&amp;ak=8c4614c8d9f809f40854d84237a39f0c">
+        </script>
+    </head>
+
+    <body>
+        <div id="container"></div>
+        <script type="text/javascript">
+            var map = new BMap.Map("container");
+            var point = new BMap.Point(121.825, 39.092);
+            map.centerAndZoom(point, 25);
+            map.enableScrollWheelZoom();
+            window.setTimeout(function(){
+                    map.panTo(new BMap.Point(121.825, 39.092));
+                },2000);
+        </script>
+    </body>
+</html>
